@@ -1,0 +1,963 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "insta",
+      "description": "by naveen verma",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API for users in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+  
+    
+  
+    "consumes": [
+      "application/json",
+      "- multipart/form-data"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/api/user/register": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Create new user in system",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "type":"string",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/product"
+
+              }
+            },{
+                  "name": "email",
+                  "in": "formData",
+                  "type":"string",
+                  "description": "User that we want to create",
+                  "schema": {
+                    "$ref": "#/definitions/product"
+                   
+                  }
+                },
+                {
+                "name": "password",
+                "in": "formData",
+                "type":"string",
+                  "description": "User that we want to create",
+                  "schema": {
+                    "$ref": "#/definitions/product"
+                  }
+                },
+               
+                {
+                  "name": "profilepic",
+                  "in": "formData",
+                  "type":"file",
+                    "description": "User that we want to create",
+                    "schema": {
+                      "$ref": "#/definitions/product"
+                    }
+                  }
+                
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+        
+      },
+      "/api/admin/followers": {
+        "get": {
+          "tags": [
+            "follower"
+          ],
+          "description": "Create new user in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+        
+      },
+      "/api/user/login": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Create new user in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+        
+      },
+      "/api/user/followme": {
+          "post": {
+            "tags": [
+              "Follower"
+            ],
+            "description": "Create new user in system",
+            "parameters": [
+                {
+
+                    "name":"auth-token",
+                     "in":"header"
+                  },{
+                "name": "user",
+                "in": "body",
+                "description": "User that we want to create",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "New user is created",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        
+        },  "/api/user/follow": {
+          "post": {
+            "tags": [
+              "Following"
+            ],
+
+            "summary": "Uploads a file.",
+
+            "parameters": [
+              {
+                "name": "name",
+                "in": "formData",
+                "type":"string",
+                "description": "User that we want to create",
+                "schema": {
+                  "$ref": "#/definitions/product"
+
+                }
+              },{
+                    "name": "name",
+                    "in": "formData",
+                    "type":"string",
+                    "description": "User that we want to create",
+                    "schema": {
+                      "$ref": "#/definitions/product"
+                     
+                    }
+                  },
+                  {
+                  "name": "price",
+                  "in": "formData",
+                  "type":"string",
+                    "description": "User that we want to create",
+                    "schema": {
+                      "$ref": "#/definitions/product"
+                    }
+                  },
+                 
+                  {
+                    "name": "productImage",
+                    "in": "formData",
+                    "type":"file",
+                      "description": "User that we want to create",
+                      "schema": {
+                        "$ref": "#/definitions/product"
+                      }
+                    },
+                {
+
+                    "name":"admin-token",
+                     "in":"header"
+                  }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              
+            }
+          }
+         
+        }, "/api/admin/login": {
+          "post": {
+            "tags": [
+              "Admin"
+            ],
+            "description": "Create new user in system",
+            "parameters": [
+              {
+                "name": "user",
+                "in": "body",
+                "description": "User that we want to create",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "New user is created",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+         
+        }, "/api/user/data": {
+            "get": {
+                "tags": [
+                  "Users"
+                ],
+                "summary": "check user auth",
+                "description": "",
+             
+                "produces": [
+                  "application/xml",
+                  "application/json"
+                ],
+                "parameters": [{ 
+
+                    "name":"auth-token",
+                     "in":"header"
+                  }],
+                "responses": {
+                  "default": {
+                    "description": "successful operation"
+                  }
+                }
+              } 
+        }
+  ,
+
+ 
+        "/api/admin/data": {
+            "get": {
+                "tags": [
+                  "Admin"
+                ],
+                "summary": " check admin auth",
+                "description": "",
+               
+                "produces": [
+                  "application/xml",
+                  "application/json"
+                ],
+                "parameters": [{ 
+
+                    "name":"admin-token",
+                     "in":"header"
+                  }],
+                "responses": {
+                  "default": {
+                    "description": "successful operation"
+                  }
+                }
+              }
+          }
+  
+  
+     
+    },
+    "definitions": {
+      "Admin": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "name": {
+            "type" :"String",
+            "required" : "true"
+        },
+        
+        "email": {
+            "type": "String",
+           "required" : "true"
+           
+        },
+        "password" : {
+            "type" : "String",
+            "required" : "true",
+            "minimum": "6",
+                    "maximum": "10"    
+        },
+        "phonenumber":{
+            "type" : "String"  
+
+          
+        },
+        "date" : {
+            "type" : "Date",
+            "default" :"Date.now"
+        }
+         
+           
+        }
+  
+      },
+      "User": {
+          "required": [
+            "email",
+            "_id"
+          ],
+          "properties": {
+           
+            "name": {
+                "type" :"String",
+                "required" : "true"
+            },
+            "email": {
+                "type": "String",
+               "required" : "true"
+               
+            },
+            "password" : {
+                "type" : "String",
+                "required" : "true"      
+            },
+            "phonenumber":{
+                "type" : "String",
+                "match": "/^[0-9]{10}$/"   
+            },
+            "date" : {
+                "type" : "Date",
+                "default" :"Date.now"
+            },
+        
+     
+          "profilepic" : {
+              "type" : "String"
+          },
+          "website":{
+              "type" :"String"
+          },
+          "bio" : {
+              "type" :"String"
+          },
+          "status": {
+              "type": "string",
+      
+           "enum": [
+          "activate",
+           "deactivate"
+           
+             ]
+          
+          }    
+        }
+    
+        },
+      
+        "Bookmark": {
+            
+            "properties": {
+             
+                
+  "posttype": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Posttype",  
+    "required": "true"
+  
+  }
+  
+                   
+            }
+      
+          },
+          "Comments": {
+            
+            "properties": {
+             
+              "userid" : {
+                "type" : "String"
+            },
+            "caption" : {
+                "type" :"String"
+            },
+            "text" : {
+                "type" :"String"
+            },
+          
+
+            "user": { 
+          
+              "type": "mongoose.Schema.Types.ObjectId", 
+              "$ref": "#/definitions/User", 
+              "required": "true"
+            },
+            "hashtags": { 
+          
+              "type": "mongoose.Schema.Types.ObjectId", 
+              "$ref": "#/definitions/Hashtags", 
+              "required": "true"
+            },
+          
+            "likes": { 
+          
+              "type": "mongoose.Schema.Types.ObjectId", 
+              "$ref": "#/definitions/Viewsandlikes", 
+              "required": "true"
+            },
+           
+            "replies": { 
+          
+              "type": "mongoose.Schema.Types.ObjectId", 
+              "$ref": "#/definitions/Replies",  
+              "required": "true"
+            },
+
+            "emoji": { 
+          
+              "type": "mongoose.Schema.Types.ObjectId", 
+              "$ref": "#/definitions/Emoji", 
+              "required": "true"
+            },
+            "message": { 
+          
+              "type": "mongoose.Schema.Types.ObjectId",
+              "$ref": "#/definitions/Message",  
+              "required": "true"
+            },
+              "date" : {
+                  "type" : "Date",
+                  "default" :"Date.now"     
+                         }
+            }
+      
+          },
+          "Emoji": {
+            
+            "properties": {
+             
+              "emoji": {
+                "type" :"String"
+            }
+                   
+            }
+      
+          }
+         ,
+         "Followers": {
+            
+          "properties": {
+           
+            "profilepic":{
+              "type" :"String"
+          },
+          "username": {
+              "type": "String"
+          },
+            "fullname":{
+                "type":
+                "String"
+            },
+
+            "following": { 
+
+              "type": "mongoose.Schema.Types.ObjectId", 
+              "$ref": "#/definitions/Following",
+              "required": "true"
+            }    
+                 
+          }
+    
+        }
+       , "Following": {
+            
+        "properties": {
+         
+          "profilepic":{
+            "type" :"String"
+        },
+        "username": {
+            "type": "String"
+        },
+          "fullname":{
+              "type":
+              "String"
+          },
+          "following":{
+              "type": "String"
+          }
+               
+        }
+  
+      }
+     , "Hasttags": {
+            
+      "properties": {
+       
+        "userid": {
+          "type" : "String"
+      },
+       "hashtags" :{ 
+          "type" :  "String"
+       }
+             
+      }
+
+    }
+   ,      "Highlights": {
+            
+    "properties": {
+     
+      "profilepic": {
+        "type":"String"
+    },
+    "highlightname" : {
+        "type": "String"
+    },
+    "createdat" : {
+        "type" : "Date",
+        "default" :"Date.now"
+    }
+    
+           
+    }
+
+  }
+ ,
+   "Images": {
+            
+    "properties": {
+     
+
+    "count" : {
+        "type": "String"
+    },
+    "image"  : {
+        "type" :"String"
+    },
+    "quality" : {
+        "type" : "String"
+    },
+    "size"  : {
+        "type" :"String"
+    }
+           
+    }
+
+  }
+ ,
+ "Message": {
+            
+  "properties": {
+   
+    "id": {
+      "type":"String"
+  },
+  "seconduserid":{
+      "type":"String"
+  },
+  "senddate" : {
+    "type" : "Date",
+    "default" :"Date.now"
+  },
+  "status": {
+    "type": "string",
+  
+ "enum": [
+"sent",
+ "recieved",
+ "delievered"
+   ]
+
+},
+
+"typing"  : {
+"type": "Boolean"
+},
+"profilepic": {
+    "type":"String"
+},
+"soundrecorder": {
+    
+  "type":"String"
+},
+"like": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Viewsandlikes",
+    "required": "true"
+  },
+"lastseen" : {
+    "type" : "Date",
+    "default" :"Date.now"
+},
+"reciveDate": {
+    "type" : "Date",
+    "default" :"Date.now"
+},
+"image" : {
+    "type": "String"
+},
+"videos": {
+    "type": "String"
+},
+"myloc": {
+    "type":"String"
+},
+"contact": {
+    "type":"String"
+},
+"doc": {
+    "type":"String"
+},
+"emoji": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Emoji",
+    "required": "true"
+  },
+  "statusb": {
+    "type": "string",
+  
+ "enum": [
+"blocked",
+"unblocked"
+   ]
+
+}
+         
+  }
+
+}
+, "messagelist": {
+            
+  "properties": {
+   
+    "userid": {
+      "type":  "mongoose.Schema.Types.ObjectId"
+  },
+  "profilepic" : {
+      "type": "String"
+  },
+  "name": {
+      "type" :"String"
+  },
+  "lastmessage": {
+      "type" :"String"
+  },
+  "newmessage": { "type":"String"
+  }
+
+  }
+
+}
+, "Posts": {
+            
+  "properties": {
+   
+    "name":{
+      "type" : "String"
+    },
+    "picture" : {
+      "type" : "String"
+    },
+    "caption" : {
+      "type" :"String"
+    },
+    "sponsered": {
+      "type" : "String"
+    },
+   "videosandlikes": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Viewsandlikes",
+      "required": "true"
+    },
+    "posttype": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Posttype",
+      "required": "true"
+    },
+    "comments": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Comments",
+      "required": "true"
+    },
+    "Hashtags": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Hashtags",
+      "required": "true"
+    },
+    "message": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Message",
+      "required": "true"
+    },
+    "bookmark": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Bookmark",
+      "required": "true"
+    },
+    "date" : {
+      "type" : "Date",
+      "default" :"Date.now"
+  }
+    
+  }
+
+}
+, "Posttype": {
+            
+  "properties": {
+   
+    "videos": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Videos",
+      "required": "true"
+    },
+    "images": { 
+
+      "type": "mongoose.Schema.Types.ObjectId", 
+      "$ref": "#/definitions/Images",
+      "required": "true"
+    },
+
+"gif" : {
+"type" : "String" 
+},
+"Ad": {
+"type" : "String"
+}
+  }
+
+}
+,
+"Replies": {
+            
+  "properties": {
+   
+    "userid" : {
+      "type" : "String"
+  },
+ "text": {
+     "type" : "String"
+ },
+  "user": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/User", 
+    "required": "true"
+  },
+  "hashtags": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Hashtags", 
+    "required": "true"
+  },
+
+  "likes": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Viewsandlikes", 
+    "required": "true"
+  },
+  "comments": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Comments", 
+    "required": "true"
+  },
+ 
+  "emoji": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Emoji", 
+    "required": "true"
+  },
+  "message": { 
+
+    "type": "mongoose.Schema.Types.ObjectId", 
+    "$ref": "#/definitions/Message", 
+    "required": "true"
+  },
+    "date" : {
+        "type" : "Date",
+        "default" :"Date.now"
+    }
+         
+  }
+
+}
+,
+"Stories": {
+            
+  "properties": {
+   
+    "id" : {
+      "type" : "Number"
+  },
+  "names" : {
+      "type" : "string"
+  },
+  "profilepic" : {
+      "type" : "Image"
+  },
+  "status": {
+    "type": "string",
+  
+ "enum": [
+"unseen",
+ "seen",
+ "mute"
+   ]
+
+},
+"date" : {
+  "type" : "Date",
+  "default" :"Date.now"
+},
+"count" : {
+  "type" : "Number"
+},
+"posttype": { 
+
+  "type": "mongoose.Schema.Types.ObjectId", 
+  "$ref": "#/definitions/Posttype", 
+  "required": "true"
+
+}
+
+  }
+
+}
+,
+"Videos": {
+            
+  "properties": {
+   
+    "duration" : {
+      "type" : "String"
+  },
+  "count" : {
+      "type": "String"
+  },
+  "video"  : {
+      "type" :"String"
+  },
+  "quality" : {
+      "type" : "String"
+  },
+  "size"  : {
+      "type" :"String"
+  }
+         
+  }
+
+}
+, "Viewsandlikes": {
+            
+  "properties": {
+   
+    "views": {
+      "type" : "Number"
+  },
+  "count" : {
+      "type" : "Number"
+  },
+  "user": { 
+   "type": "mongoose.Schema.Types.ObjectId", 
+   "$ref": "#/definitions/User", 
+   "required": "true"
+ },
+"follow": {
+   "type" : "String"
+},
+"date" : {
+   "type" : "Date",
+   "default" :"Date.now"
+}
+
+         
+  }
+
+}
+,
+     
+      "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      }
+    }
+  }
